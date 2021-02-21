@@ -1,3 +1,5 @@
+@use '../../utilities/variables' as v;
+
 .todos {
     width: 60%;
     height: 100%;
@@ -13,5 +15,8 @@
     &__title {
         padding: 15px 0;
         text-align: center;
+
+        color: v.$color-dark-pink;
+        text-shadow: 0 1px 2px v.$color-medium-pink;
     }
 }
