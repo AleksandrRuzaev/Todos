@@ -1,0 +1,17 @@
+.todos {
+    width: 60%;
+    height: 100%;
+
+    margin: 0 auto;
+    margin-top: 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgb(172, 168, 168);
+    border-radius: 20px;
+
+    &__title {
+        padding: 15px 0;
+        text-align: center;
+    }
+}
