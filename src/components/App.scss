@@ -1,5 +1,9 @@
+@use '../utilities/variables' as v;
+
 body {
     height: 100%;
+
+    background-color: v.$color-light-gray;
 }
 
 :host {

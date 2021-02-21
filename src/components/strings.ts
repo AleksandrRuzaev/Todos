@@ -1,6 +1,6 @@
 const STRINGS = {
     TodosTitle: {
-        Title: 'Todos',
+        Title: 'todos',
     },
     TodosFooter: {
         Actions: {
