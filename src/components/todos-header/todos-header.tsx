@@ -1,6 +1,8 @@
 import React from 'react';
 import { ITodoHeaderProps } from './todos-header.types';
 import './todos-header.scss';
+import { Input } from '../controls/input/input';
+import { STRINGS } from '../strings';
 
 const ENTER = 'Enter';
 
@@ -37,6 +39,7 @@ export class TodosHeader extends React.Component<
             this.setState((prevState) => ({
                 lastId: prevState.lastId + 1,
                 count: prevState.count + 1,
+                value: '',
             }));
         }
     };
@@ -48,7 +51,7 @@ export class TodosHeader extends React.Component<
     render() {
         return (
             <div className="todos-header">
-                {Boolean(this.state.count) && (
+                {Boolean(this.props.count) && (
                     <div
                         className="todos-header__toggle"
                         onClick={() => this.handleToggle()}
@@ -57,19 +60,15 @@ export class TodosHeader extends React.Component<
                     </div>
                 )}
                 <div className="todos-header__field">
-                    <input
+                    <Input
+                        className="todos-header__input-field"
+                        name="add-item"
                         type="text"
+                        placeholder={STRINGS.TodosHeader.InputPlaceholder}
                         value={this.state.value}
                         onChange={this.handleChange}
-                        onKeyDown={(e) => this.handleAdd(e)}
+                        onKeyDown={this.handleAdd}
                     />
-                </div>
-                <div className="todos-header__button">
-                    {/* <Button
-                        onClick={this.handleAdd}
-                        label={'Add'}
-                        type={ButtonType.Common}
-                    /> */}
                 </div>
             </div>
         );

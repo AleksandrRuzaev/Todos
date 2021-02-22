@@ -2,6 +2,9 @@ const STRINGS = {
     TodosTitle: {
         Title: 'todos',
     },
+    TodosHeader: {
+        InputPlaceholder: 'What needs to be done?',
+    },
     TodosFooter: {
         Actions: {
             All: 'All',
