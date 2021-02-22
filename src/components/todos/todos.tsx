@@ -113,20 +113,22 @@ export class Todos extends React.Component<{}, ITodosState> {
                             }}
                         />
                     )}
-                    <TodosFooter
-                        activeCount={
-                            this.state.items.filter(
-                                (item: ITodoItem) => !item.completed,
-                            ).length
-                        }
-                        actionType={this.state.listType}
-                        handleChangeListType={(type: ListType) => {
-                            this.handleChangeListType(type);
-                        }}
-                        handleClearCompleted={() => {
-                            this.handleRemove(undefined, true);
-                        }}
-                    />
+                    {Boolean(this.state.items.length) && (
+                        <TodosFooter
+                            activeCount={
+                                this.state.items.filter(
+                                    (item: ITodoItem) => !item.completed,
+                                ).length
+                            }
+                            actionType={this.state.listType}
+                            handleChangeListType={(type: ListType) => {
+                                this.handleChangeListType(type);
+                            }}
+                            handleClearCompleted={() => {
+                                this.handleRemove(undefined, true);
+                            }}
+                        />
+                    )}
                 </div>
             </div>
         );

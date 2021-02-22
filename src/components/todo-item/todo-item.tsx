@@ -18,7 +18,7 @@ export class TodoItem extends React.Component<ITodoItemProps, {}> {
         return (
             <div className="todo-item">
                 <div className="todo-item__toggle">
-                    {this.props.completed ? (
+                    {!this.props.completed ? (
                         <div
                             className={classNames(
                                 'todo-item__checkbox',
@@ -35,7 +35,16 @@ export class TodoItem extends React.Component<ITodoItemProps, {}> {
                         />
                     )}
                 </div>
-                <div className="todo-item__content">{this.props.title}</div>
+                <div
+                    className={classNames(
+                        'todo-item__content',
+                        this.props.completed
+                            ? 'todo-item__content--line-cross'
+                            : null,
+                    )}
+                >
+                    {this.props.title}
+                </div>
                 <div className="todo-item__remove">
                     <Button
                         className={'todo-item__cross'}
