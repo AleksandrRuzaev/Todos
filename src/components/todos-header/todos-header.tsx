@@ -32,7 +32,7 @@ export class TodosHeader extends React.Component<
     };
 
     handleAdd = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-        if (event.key === ENTER) {
+        if (event.key === ENTER && Boolean(this.state.value)) {
             this.props.handleAdd({
                 title: this.state.value,
                 completed: false,
