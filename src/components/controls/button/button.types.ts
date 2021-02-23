@@ -15,4 +15,5 @@ export enum ButtonType {
 export enum IconType {
     Checkbox = 'checkbox',
     Cross = 'cross',
+    Arrow = 'arrow'
 }

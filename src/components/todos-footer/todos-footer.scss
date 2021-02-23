@@ -43,5 +43,9 @@
             cursor: pointer;
             text-decoration: underline;
         }
+
+        &--hidden {
+            opacity: 0;
+        }
     }
 }

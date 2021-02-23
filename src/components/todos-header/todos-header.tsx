@@ -3,6 +3,9 @@ import { ITodoHeaderProps } from './todos-header.types';
 import './todos-header.scss';
 import { Input } from '../controls/input/input';
 import { STRINGS } from '../strings';
+import { Button } from '../controls/button/button';
+import { IconType } from '../controls/button/button.types';
+import classNames from 'classnames';
 
 const ENTER = 'Enter';
 
@@ -52,12 +55,17 @@ export class TodosHeader extends React.Component<
         return (
             <div className="todos-header">
                 {Boolean(this.props.count) && (
-                    <div
-                        className="todos-header__toggle"
+                    <Button
+                        className={classNames(
+                            'todos-header__toggle',
+                            !this.props.isOpen
+                                ? 'todos-header__toggle--down'
+                                : null,
+                        )}
+                        icon={IconType.Arrow}
+                        iconClassName={'todo-item__cross-icon'}
                         onClick={() => this.handleToggle()}
-                    >
-                        arrow
-                    </div>
+                    />
                 )}
                 <div className="todos-header__field">
                     <Input

@@ -11,6 +11,10 @@
         width: 42px;
 
         margin-right: 1.5rem;
+
+        &--down {
+            transform: rotate(180deg);
+        }
     }
 
     &__field {

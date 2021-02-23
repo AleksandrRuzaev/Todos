@@ -101,6 +101,7 @@ export class Todos extends React.Component<{}, ITodosState> {
                         toggleList={() => this.toggleList()}
                         lastId={this.getNextId()}
                         count={this.state.items.length}
+                        isOpen={this.state.isOpen}
                     />
                     {this.state.isOpen && (
                         <TodosBody
@@ -113,11 +114,16 @@ export class Todos extends React.Component<{}, ITodosState> {
                             }}
                         />
                     )}
-                    {Boolean(this.state.items.length) && (
+                    {Boolean(this.state.isOpen && this.state.items.length) && (
                         <TodosFooter
                             activeCount={
                                 this.state.items.filter(
                                     (item: ITodoItem) => !item.completed,
+                                ).length
+                            }
+                            completedCount={
+                                this.state.items.filter(
+                                    (item: ITodoItem) => item.completed,
                                 ).length
                             }
                             actionType={this.state.listType}

@@ -17,8 +17,6 @@ export class TodosFooter extends React.Component<ITodoFooterProps, {}> {
         );
     };
 
-    setActiveButton = () => {};
-
     handleAction = (label: string): void => {
         let actionType: ListType;
 
@@ -40,7 +38,7 @@ export class TodosFooter extends React.Component<ITodoFooterProps, {}> {
 
     render() {
         return (
-            <div className="todos-footer">
+            <div className={classNames('todos-footer')}>
                 <div className="todos-footer__active-count">
                     {this.getCount()}
                 </div>
@@ -89,12 +87,19 @@ export class TodosFooter extends React.Component<ITodoFooterProps, {}> {
                         }
                     />
                 </div>
-                <div
-                    className="todos-footer__complete-action"
-                    onClick={() => this.props.handleClearCompleted()}
-                >
-                    {STRINGS.TodosFooter.Actions.ClearCompleted}
-                </div>
+                {
+                    <div
+                        className={classNames(
+                            'todos-footer__complete-action',
+                            !this.props.completedCount
+                                ? 'todos-footer__complete-action--hidden'
+                                : null,
+                        )}
+                        onClick={() => this.props.handleClearCompleted()}
+                    >
+                        {STRINGS.TodosFooter.Actions.ClearCompleted}
+                    </div>
+                }
             </div>
         );
     }
