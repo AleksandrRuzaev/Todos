@@ -87,19 +87,17 @@ export class TodosFooter extends React.Component<ITodoFooterProps, {}> {
                         }
                     />
                 </div>
-                {
-                    <div
-                        className={classNames(
-                            'todos-footer__complete-action',
-                            !this.props.completedCount
-                                ? 'todos-footer__complete-action--hidden'
-                                : null,
-                        )}
-                        onClick={() => this.props.handleClearCompleted()}
-                    >
-                        {STRINGS.TodosFooter.Actions.ClearCompleted}
-                    </div>
-                }
+                <div
+                    className={classNames(
+                        'todos-footer__complete-action',
+                        !this.props.completedCount
+                            ? 'todos-footer__complete-action--hidden'
+                            : null,
+                    )}
+                    onClick={() => this.props.handleClearCompleted()}
+                >
+                    {STRINGS.TodosFooter.Actions.ClearCompleted}
+                </div>
             </div>
         );
     }

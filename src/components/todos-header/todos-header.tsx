@@ -7,8 +7,6 @@ import { Button } from '../controls/button/button';
 import { IconType } from '../controls/button/button.types';
 import classNames from 'classnames';
 
-const ENTER = 'Enter';
-
 export class TodosHeader extends React.Component<
     ITodoHeaderProps,
     { value: string; lastId: number; count: number }
@@ -32,7 +30,7 @@ export class TodosHeader extends React.Component<
     };
 
     handleAdd = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-        if (event.key === ENTER && Boolean(this.state.value)) {
+        if (event.key === STRINGS.Events.EnterKey && Boolean(this.state.value)) {
             this.props.handleAdd({
                 title: this.state.value,
                 completed: false,

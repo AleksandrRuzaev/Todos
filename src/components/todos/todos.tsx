@@ -18,6 +18,23 @@ export class Todos extends React.Component<{}, ITodosState> {
         this.setState(() => ({ items: [...this.state.items, todo] }));
     };
 
+    handleEdit = (todo: ITodoItem): void => {
+        const resultList = this.state.items.map((item: ITodoItem) => {
+            let result: ITodoItem = item;
+
+            if (item.id === todo.id) {
+                result = {
+                    ...result,
+                    title: todo.title,
+                };
+            }
+
+            return result;
+        });
+
+        this.setState(() => ({ items: [...resultList] }));
+    };
+
     handleRemove = (id?: number, removeCompleted?: boolean): void => {
         this.setState((prevState: ITodosState) => {
             let result: Array<ITodoItem> = prevState.items;
@@ -112,6 +129,9 @@ export class Todos extends React.Component<{}, ITodosState> {
                             toggleItem={(id: number) => {
                                 this.toggleItem(id);
                             }}
+                            handleEdit={(todo: ITodoItem) =>
+                                this.handleEdit(todo)
+                            }
                         />
                     )}
                     {Boolean(this.state.isOpen && this.state.items.length) && (

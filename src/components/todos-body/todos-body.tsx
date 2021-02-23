@@ -27,6 +27,7 @@ export class TodosBody extends React.Component<
                         key={index}
                         handleRemove={this.props.handleRemove}
                         toggleItem={this.props.toggleItem}
+                        handleEdit={this.props.handleEdit}
                     />
                 ))}
             </div>

@@ -18,6 +18,9 @@ const STRINGS = {
     TodosHint: {
         Hint: 'Double click to edit a todo',
     },
+    Events: {
+        EnterKey: 'Enter',
+    },
 };
 
 export { STRINGS };
