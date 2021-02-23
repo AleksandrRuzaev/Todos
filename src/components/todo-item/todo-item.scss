@@ -28,6 +28,10 @@
         border: 1px solid v.$color-medium-gray;
         border-radius: 50%;
 
+        &:hover {
+            cursor: pointer;
+        }
+
         &--empty {
             width: 42px;
         }

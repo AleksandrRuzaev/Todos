@@ -136,6 +136,7 @@ export class Todos extends React.Component<{}, ITodosState> {
                         />
                     )}
                 </div>
+                <div className="todos__hint">{STRINGS.TodosHint.Hint}</div>
             </div>
         );
     }

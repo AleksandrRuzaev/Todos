@@ -21,7 +21,7 @@
         background-color: v.$color-white;
         color: v.$color-medium-gray;
 
-        &:hover {
+        &:hover, &:active {
             color: v.$color-dark-pink;
 
             border-color: v.$color-dark-pink;

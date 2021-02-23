@@ -30,4 +30,13 @@
         -moz-box-shadow: 0px 17px 26px 0px rgba(34, 60, 80, 0.2);
         box-shadow: 0px 17px 26px 0px rgba(34, 60, 80, 0.2);
     }
+
+    &__hint {
+        display: flex;
+        justify-content: center;
+
+        margin: 2.5rem 2rem;
+
+        color: v.$color-medium-gray;
+    }
 }

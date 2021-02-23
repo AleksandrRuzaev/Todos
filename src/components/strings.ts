@@ -15,6 +15,9 @@ const STRINGS = {
         Count: '{0} items left',
         CountSingle: '{0} item left',
     },
+    TodosHint: {
+        Hint: 'Double click to edit a todo',
+    },
 };
 
 export { STRINGS };
