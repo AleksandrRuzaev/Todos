@@ -10,7 +10,7 @@ export class Icon extends React.Component<{
     type?: IconType;
     className?: string;
 }> {
-    getIcon = () => {
+    getIcon = (): JSX.Element | null => {
         switch (this.props.type) {
             case IconType.Checkbox:
                 return <Checkbox />;

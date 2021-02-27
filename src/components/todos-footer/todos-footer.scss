@@ -1,4 +1,5 @@
 @use '../../utilities/variables' as v;
+@use '../../utilities/mixins' as m;
 
 .todos-footer {
     display: flex;
@@ -11,6 +12,8 @@
 
     &__actions {
         display: flex;
+
+        margin: 0 0.5rem
     }
 
     &__action {
@@ -18,7 +21,6 @@
         margin-right: 1.2rem;
         padding: 0.3625rem 0.5rem;
 
-        background-color: v.$color-white;
         color: v.$color-medium-gray;
 
         &:hover, &:active {
@@ -47,5 +49,9 @@
         &--hidden {
             opacity: 0;
         }
+    }
+
+    @include m.media-max(v.$mobile-to-tablet) {
+        font-size: 1.3rem;
     }
 }

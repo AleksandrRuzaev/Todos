@@ -1,22 +1,21 @@
 @use '../../utilities/variables' as v;
+@use '../../utilities/mixins' as m;
 
 .todos {
     width: 60%;
     height: 100%;
 
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 
     box-sizing: border-box;
 
     &__title {
         font-weight: 500;
-        font-size: 50px;
-        letter-spacing: 5px;
-    }
+        font-size: 3.13rem;
+        letter-spacing: 0.5rem;
 
-    &__title {
-        padding: 15px 0;
+        padding: 1.2rem 0;
         text-align: center;
 
         color: v.$color-dark-pink;
@@ -38,5 +37,15 @@
         margin: 2.5rem 2rem;
 
         color: v.$color-medium-gray;
+    }
+
+    @include m.media-max(v.$mobile-to-tablet) {
+        width: 100%;
+
+        margin: 0;
+    }
+
+    @include m.media-exactly(v.$mobile-to-tablet, v.$tablet-to-medium-screen) {
+        width: 80%;
     }
 }
