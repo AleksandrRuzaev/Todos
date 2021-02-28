@@ -49,6 +49,7 @@ export class TodoItem extends React.Component<
         }
 
         if (event.key === STRINGS.Events.EscapeKey) {
+            this.setState({ value: this.props.title });
             this.toggleEdit();
         }
     };
