@@ -47,6 +47,40 @@ export class TodoItem extends React.Component<
 
             this.toggleEdit();
         }
+
+        if (event.key === STRINGS.Events.EscapeKey) {
+            this.toggleEdit();
+        }
+    };
+
+    doubletapDeltaTime: number = 700;
+    doubleTapTimer: number | null = null;
+
+    doubleTap1Function: null | (() => void) = null;
+    doubletap2Function: null | (() => void) = null;
+
+    tap = (
+        singleTapFunc: null | (() => void),
+        doubleTapFunc: () => void,
+    ): void => {
+        if (this.doubleTapTimer === null) {
+            this.doubleTapTimer = setTimeout(
+                this.doubleTapTimeout,
+                this.doubletapDeltaTime,
+            );
+
+            this.doubleTap1Function = singleTapFunc;
+            this.doubletap2Function = doubleTapFunc;
+        } else {
+            clearTimeout(this.doubleTapTimer);
+            this.doubleTapTimer = null;
+            this.doubletap2Function && this.doubletap2Function();
+        }
+    };
+
+    doubleTapTimeout = (): void => {
+        this.doubleTap1Function && this.doubleTap1Function();
+        this.doubleTapTimer = null;
     };
 
     render() {
@@ -80,7 +114,7 @@ export class TodoItem extends React.Component<
                                 ? 'todo-item__content--line-cross'
                                 : null,
                         )}
-                        onDoubleClick={() => this.handleDoubleClick()}
+                        onClick={() => this.tap(null, this.handleDoubleClick)}
                     >
                         {this.props.title}
                     </div>

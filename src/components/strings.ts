@@ -20,6 +20,7 @@ const STRINGS = {
     },
     Events: {
         EnterKey: 'Enter',
+        EscapeKey: 'Escape',
     },
 };
 
