@@ -2,13 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development',
     entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'build'),
-        publicPath: '/',
+        publicPath: '',
         filename: 'bundle.js',
     },
     module: {
@@ -60,6 +61,14 @@ module.exports = {
         }),
         new HtmlWebPackPlugin({
             template: path.resolve('./index.html'),
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src', 'assets'), 
+                    to: path.resolve(__dirname, 'build', 'assets') 
+                },
+            ],
         })
     ],
 };
