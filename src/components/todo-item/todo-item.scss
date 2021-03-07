@@ -56,6 +56,7 @@
 
     &__content {
         flex: 1 1;
+        overflow: hidden;
         text-align: left;
 
         color: v.$color-medium-gray;

@@ -1,0 +1,39 @@
+@use '../../utilities/variables' as v;
+
+.text-ellipsis {
+    position: relative;
+
+    &--enabled {
+        cursor: pointer;
+    }
+
+    &:hover.text-ellipsis--enabled .text-ellipsis__tooltip,
+    &:active.text-ellipsis--enabled .text-ellipsis__tooltip {
+        display: block;
+    }
+
+    &__content {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &__tooltip {
+        display: none;
+        position: fixed;
+        max-width: 70vw;
+        z-index: 10;
+
+        padding: 0.7rem;
+        margin-top: 0.7rem;
+
+        font-size: 0.8rem;
+        color: v.$color-dark-pink;
+        word-wrap: break-word;
+
+        border-radius: 0.25rem;
+        border: solid 1px v.$color-medium-gray;
+        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.13);
+        background-color: v.$color-light-gray;
+    }
+}

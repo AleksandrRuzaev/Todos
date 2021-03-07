@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { Input } from '../controls/input/input';
 import { STRINGS } from '../strings';
 import './todo-item.scss';
+import { TextEllipsis } from '../text-ellipsis/text-ellispsis';
 
 export class TodoItem extends React.Component<
     ITodoItemProps,
@@ -117,7 +118,7 @@ export class TodoItem extends React.Component<
                         )}
                         onClick={() => this.tap(null, this.handleDoubleClick)}
                     >
-                        {this.props.title}
+                        <TextEllipsis>{this.props.title}</TextEllipsis>
                     </div>
                 ) : (
                     <div className="todo-item__input-container">
