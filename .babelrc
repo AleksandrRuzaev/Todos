@@ -1,4 +1,7 @@
 // See http://babeljs.io/docs/en/env/
 {
-    "presets": ["env", "react"]
+    "presets": [
+        "@babel/env",
+        "@babel/react"
+    ]
 }
